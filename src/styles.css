@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+/*  Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*  Fondo general claro y tipografía */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  color: #222;
+  background: radial-gradient(circle at top, #f8f8f8 0%, #e8e8e8 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+/*  Efecto de resplandor suave */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+}
+
+body::before {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 140, 255, 0.2), transparent 70%);
+  top: 15%;
+  left: 45%;
+  transform: translateX(-50%);
+}
+
+body::after {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0, 200, 255, 0.15), transparent 80%);
+  bottom: 5%;
+  right: 10%;
+}
