@@ -1,86 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor general */
 .swContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: linear-gradient(145deg, #ffffff 0%, #f0f5ff 100%);
-  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(145deg, #ffffff 0%, #eef5ff 100%);
   color: #1a1a1a;
-  position: relative;
-  z-index: 1;
+  text-align: center;
+  gap: 2rem;
 }
 
-/*  Cronómetro con efecto de vidrio luminoso */
+/* Título principal */
+.title {
+  font-size: 2.3rem;
+  background: linear-gradient(90deg, #0078ff, #e207ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+}
+
+/* Cronómetro */
 .stopwatch {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(15px);
   border: 2px solid rgba(0, 140, 255, 0.2);
   padding: 2.8rem 4.5rem;
-  border-radius: 1.5rem;
+  border-radius: 1.8rem;
   box-shadow:
-    0 0 25px rgba(0, 170, 255, 0.3),
-    0 0 50px rgba(226, 7, 255, 0.2),
-    inset 0 0 15px rgba(255, 255, 255, 0.5);
-  font-size: 2.3rem;
+    0 0 25px rgba(0, 170, 255, 0.25),
+    0 0 50px rgba(226, 7, 255, 0.15),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+  font-size: 2.8rem;
   letter-spacing: 2px;
   color: #0b1d3a;
   transition: all 0.4s ease;
+  width: 400px; /* ancho fijo para evitar cambio de tamaño */
+  height: 130px; /* altura fija */
 }
 
 .stopwatch:hover {
-  box-shadow:
-    0 0 40px rgba(0, 180, 255, 0.45),
-    0 0 70px rgba(226, 7, 255, 0.3),
-    inset 0 0 20px rgba(255, 255, 255, 0.6);
   transform: scale(1.03);
+  box-shadow:
+    0 0 35px rgba(0, 180, 255, 0.35),
+    0 0 70px rgba(226, 7, 255, 0.25),
+    inset 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
-/*  Título del cronómetro */
+/* Texto dentro del cronómetro */
 .stopwatch .span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  font-variant-numeric: tabular-nums; /* asegura que los números no salten */
 }
 
 .stopwatch .span::before {
-  content: 'Cronómetro';
+  content: "Tiempo";
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #0078ff;
   letter-spacing: 2px;
-  margin-bottom: 0.6rem;
-  text-shadow: 0 0 8px rgba(0, 170, 255, 0.6);
+  margin-bottom: 0.5rem;
 }
 
-/* botoncitos*/
+/* Contenedor de botones */
 .button-container {
   display: flex;
-  gap: 1.5rem;
-  margin-top: 2.8rem;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
 }
 
-/*  Botones con energía y gradiente animado */
+/* Botones */
 button {
-  background: linear-gradient(135deg, #e207ff, #00c6ff);
   border: none;
-  padding: 1rem 2rem;
+  padding: 1.1rem 2.4rem;
   border-radius: 0.8rem;
   font-size: 1rem;
   color: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 18px rgba(7, 181, 255, 0.4);
+  font-weight: 500;
   position: relative;
   overflow: hidden;
 }
 
-/*  Efecto de brillo en hover */
+.start {
+  background: linear-gradient(135deg, #00c6ff, #0078ff);
+}
+
+.stop {
+  background: linear-gradient(135deg, #ff3b7f, #ff6bb2);
+}
+
+.reset {
+  background: linear-gradient(135deg, #d3d3d3, #bdbdbd);
+  color: #333;
+}
+
+/* Efecto de brillo */
 button::after {
   content: "";
   position: absolute;
@@ -88,7 +117,7 @@ button::after {
   left: -75%;
   width: 50%;
   height: 100%;
-  background: rgba(159, 10, 189, 0.4);
+  background: rgba(255, 255, 255, 0.3);
   transform: skewX(-25deg);
   transition: left 0.4s ease;
 }
@@ -98,13 +127,10 @@ button:hover::after {
 }
 
 button:hover {
-  box-shadow:
-    0 0 30px rgba(0, 200, 255, 0.7),
-    0 0 40px rgba(226, 7, 255, 0.4);
   transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.4);
 }
 
 button:active {
   transform: scale(0.95);
-  box-shadow: 0 0 12px rgba(0, 180, 255, 0.5);
 }

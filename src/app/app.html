@@ -1,12 +1,14 @@
 
+
 <div class="swContainer">
+  <h1 class="title">El Cronómetro de AlejoReal</h1>
   <div class="stopwatch">
     <div class="span">{{ time }}</div>
   </div>
 
   <div class="button-container">
-    <button (click)="start()">Empieza ya </button>
-    <button (click)="stop()">Stop</button>
-    <button (click)="reset()">Reset</button>
+    <button class="start" (click)="start()">Empieza ya</button>
+    <button class="stop" (click)="stop()">Stop</button>
+    <button class="reset" (click)="reset()">Reset</button>
   </div>
 </div>
