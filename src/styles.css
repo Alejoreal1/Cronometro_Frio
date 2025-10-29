@@ -13,16 +13,6 @@ body {
   position: relative;
 }
 
-/* Efecto de resplandor suave animado */
-body::before,
-body::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  z-index: 0;
-  animation: floatGlow 10s ease-in-out infinite alternate;
-}
 
 body::before {
   width: 350px;

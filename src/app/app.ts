@@ -35,6 +35,7 @@ export class App implements OnDestroy {
   reset() {
     this.stop(); //  Detiene el contador
     this.time = '00:00:00:000'; 
+    this.start()
   }
 
   ngOnDestroy() {
