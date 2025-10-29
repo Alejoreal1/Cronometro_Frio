@@ -11,7 +11,7 @@
   z-index: 1;
 }
 
-/* 🕓 Cronómetro con efecto de vidrio luminoso */
+/*  Cronómetro con efecto de vidrio luminoso */
 .stopwatch {
   display: flex;
   justify-content: center;
@@ -40,7 +40,7 @@
   transform: scale(1.03);
 }
 
-/* 🧭 Título del cronómetro */
+/*  Título del cronómetro */
 .stopwatch .span {
   display: flex;
   flex-direction: column;

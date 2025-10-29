@@ -1,11 +1,11 @@
-/* 🎯 Reset global */
+/*  Reset global */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* 🌤 Fondo general con brillo y textura */
+/*  Fondo general con brillo y textura */
 html,
 body {
   height: 100%;
@@ -18,7 +18,7 @@ body {
   position: relative;
 }
 
-/* 💫 Efecto de resplandor suave animado */
+/* Efecto de resplandor suave animado */
 body::before,
 body::after {
   content: "";

@@ -16,7 +16,7 @@ export class App {
   constructor(private crono: CronoService) {}
 
   start() {
-    this.sub = this.crono.getTimer().subscribe((value) => {
+    this.sub = this.crono.getTimer().subscribe((value) => { // metodo para obtener el tiempo del cronómetro
       this.time = value;
     });
   }
