@@ -4,24 +4,23 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
+  standalone: true, //  Si estás usando componentes standalone
   imports: [],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'] // 
 })
-export class App {
+export class App implements OnDestroy {
 
-  time = '';
-  sub: Subscription | undefined;
+  time = '00:00:00:000'; //  Inicializamos con ceros
+  sub?: Subscription;
 
   constructor(private crono: CronoService) {}
+
   start() {
-    //  Validar si ya hay una suscripción activa (cronómetro en marcha)
-    if (this.sub && !this.sub.closed) {
+    // Evitar iniciar múltiples veces
+    if (this.sub && !this.sub.closed) return;
 
-      return;
-    }
-
-    //  Crear una nueva suscripción solo si no hay una activa
+    // Iniciar suscripción
     this.sub = this.crono.getTimer().subscribe((value: string) => {
       this.time = value;
     });
@@ -34,7 +33,13 @@ export class App {
   }
 
   reset() {
-    this.stop();
-    this.time = '00:00:00:000';
+    this.stop(); //  Detiene el contador
+    this.time = '00:00:00:000'; 
+  }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }
