@@ -14,15 +14,23 @@ export class App {
   sub: Subscription | undefined;
 
   constructor(private crono: CronoService) {}
-
   start() {
-    this.sub = this.crono.getTimer().subscribe((value) => { // metodo para obtener el tiempo del cronómetro
+    // 🔹 Validar si ya hay una suscripción activa (cronómetro en marcha)
+    if (this.sub && !this.sub.closed) {
+      console.warn(' El cronómetro ya está corriendo');
+      return;
+    }
+
+    // 🔹 Crear una nueva suscripción solo si no hay una activa
+    this.sub = this.crono.getTimer().subscribe((value: string) => {
       this.time = value;
     });
   }
 
   stop() {
-    this.sub?.unsubscribe();
+    if (this.sub && !this.sub.closed) {
+      this.sub.unsubscribe();
+    }
   }
 
   reset() {

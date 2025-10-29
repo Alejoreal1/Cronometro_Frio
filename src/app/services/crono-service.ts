@@ -26,6 +26,7 @@ export class CronoService {
   // para que puedas acceder desde el componente
   getTimer(): Observable<string> {
     return this.base$;
+    
   }
 
   private pad(num: number): string {
